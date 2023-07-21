@@ -9,13 +9,15 @@
 	    <label for="username">사용자 이름:</label>
 	    <input type="text"  value="${principal.user.username}" class="form-control" placeholder="이름을 입력하세요" id="username" readonly>
 	  </div>
-  	  <div class="form-group">
-	    <label for="password">비밀번호:</label>
-	    <input type="password" class="form-control" placeholder="비밀번호를 입력하세요" id="password">
-	  </div>
+	  <c:if test="${empty principal.user.oauth}">
+    	  <div class="form-group">
+		    <label for="password">비밀번호:</label>
+		    <input type="password" class="form-control" placeholder="비밀번호를 입력하세요" id="password">
+		  </div>
+	  </c:if>
 	  <div class="form-group">
 	    <label for="email">이메일:</label>
-	    <input type="email" value="${principal.user.email}" class="form-control" placeholder="이메일을 입력하세요" id="email">
+	    <input type="email" value="${principal.user.email}" class="form-control" placeholder="이메일을 입력하세요" id="email" readonly="readonly">
 	  </div>
 	</form>
 	<button id="btn-update" class="btn btn-primary">회원수정완료</button>
